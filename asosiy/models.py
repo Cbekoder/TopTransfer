@@ -4,11 +4,11 @@ class Club(models.Model):
     nom = models.CharField(max_length=30)
     logo = models.FileField()
     davlat = models.CharField(max_length=30)
-    presidend = models.CharField(max_length=30, blank = True)
+    presidend = models.CharField(max_length=40, blank = True)
     coach = models.CharField(max_length=30, blank= True)
     yili = models.DateField(blank=True)
-    record_transfer = models.CharField(max_length=30, blank=True)
-    record_sotuv = models.CharField(max_length=30, blank=True)
+    record_transfer = models.CharField(max_length=100, blank=True)
+    record_sotuv = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.nom
