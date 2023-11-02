@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import *
 
 def home(request):
     return render(request, 'index.html')
@@ -11,7 +11,10 @@ def about(request):
     return render(request, 'about.html')
 
 def players(request):
-    return render(request, 'players.html')
+    content = {
+        "players" : Player.objects.all()
+    }
+    return render(request, 'players.html', content)
 
 def stats(request):
     return render(request, 'stats.html')
