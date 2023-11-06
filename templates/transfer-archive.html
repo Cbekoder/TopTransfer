@@ -1,4 +1,5 @@
 {% extends 'header.html' %}
+{% block title %}Transfer archives{% endblock %}
 
 {% block content %}
       <div class="nav">
@@ -7,21 +8,11 @@
       </div>
       <div class="content">
         <div class="stats">
+          {% for period in periods %}
           <div>
-            <a href="./2017-18season.html">Season 2017-18</a>
+            <a href="/season/{{period.mavsum}}">Season 20{{period.mavsum}}</a>
           </div>
-          <div>
-            <a href="./2018-19season.html">Season 2018-19</a>
-          </div>
-          <div>
-            <a href="./2019-20season.html">Season 2019-20</a>
-          </div>
-          <div>
-            <a href="./2020-21season.html">Season 2020-21</a>
-          </div>
-          <div>
-            <a href="../latest-transfers.html">Latest-transfers</a>
-          </div>
+          {% endfor %}
         </div>
       </div>
 {% endblock %}

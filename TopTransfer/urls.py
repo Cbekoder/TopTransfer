@@ -22,4 +22,5 @@ urlpatterns = [
     path('transfer-archive/', transfer_archive),
     path('countries/<str:davlat>/', country_club),
     path('club_player/<str:club>/', club_player),
+    path('season/<str:tm>/', season),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

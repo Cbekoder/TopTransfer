@@ -27,7 +27,6 @@ def transfer_records(request):
     content = {
         "transfers": Transfer.objects.all()
     }
-    print(content["transfers"])
     return render(request, 'stats/transfer-records.html', content)
 
 def predictions(request):
@@ -41,9 +40,8 @@ def income(request):
 
 def latest_transfers(request):
     content = {
-        "transfers" : Transfer.objects.filter(mavsum = HMavsum.objects.all().order_by("-hozirgi_mavsum")[1])
+        "transfers" : Transfer.objects.filter(mavsum = HMavsum.objects.last().hozirgi_mavsum)
     }
-    print(content["transfers"])
     return render(request, 'latest-transfers.html', content)
 
 def u_20_players(request):
@@ -59,7 +57,6 @@ def tryouts(request):
     return render(request, 'tryouts.html')
 
 def country_club(request, davlat):
-    print(davlat)
     content = {
         'clubs' : Club.objects.filter(davlat = davlat),
         'country' : davlat.title()
@@ -67,8 +64,17 @@ def country_club(request, davlat):
     return render(request, 'england.html', content)
 
 def transfer_archive(request):
-    return render(request, 'transfer-archive.html')
+    content = {
+        "periods" : Transfer.objects.exclude(mavsum =HMavsum.objects.first()).values("mavsum").distinct().order_by("mavsum")
+    }
+    return render(request, 'transfer-archive.html', content)
 
+def season(request, tm):
+    content = {
+        "tm": tm,
+        "transfers" : Transfer.objects.filter(mavsum = tm)
+    }
+    return render(request, "season.html", content)
 def club_player(request, club):
     content = {
         'club' : club,

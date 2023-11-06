@@ -40,7 +40,15 @@ class Transfer(models.Model):
     yangi = models.ForeignKey(Club, on_delete=models.CASCADE, related_name="olganlari")
     narx = models.PositiveIntegerField()
     tah_narx = models.PositiveIntegerField()
-    mavsum = models.ForeignKey(HMavsum, on_delete=models.SET_NULL, null= True)
+    mavsum = models.CharField(max_length=10, default="22-23")
 
     def __str__(self):
         return f"{self.player} >>> {self.yangi}"
+
+    def save(self, *args, **kwargs):
+        m = HMavsum.objects.last().hozirgi_mavsum
+        if self.mavsum == m:
+            player = self.player
+            player.club = self.yangi
+            player.save()
+        super(Transfer, self).save(*args, **kwargs)

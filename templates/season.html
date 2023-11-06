@@ -1,8 +1,8 @@
 {% extends 'header.html' %}
-
+{% block title %}SEASON - 20{{tm}}{% endblock %}
 {% block content %}
       <div class="nav">
-          <h2>– TRANSFER RECORDS –</h2>
+          <h2>– SEASON - 20{{tm}} –</h2>
           <table class="content-nav">
             <thead>
               <tr>
@@ -10,14 +10,21 @@
                 <td>player</td>
                 <td>from</td>
                 <td>to</td>
-                <td>transfer fee, <br />mill. euro</td>
-                <td>season</td>
+                <td>
+                  transfer fee, <br />
+                  mill. euro
+                </td>
+                <td>
+                  transfer fee, <br />
+                  mill. euro, <br />
+                  by tft.com
+                </td>
               </tr>
             </thead>
           </table>
         </div><br><br><br><br><br>
       <div class="latest-transfers">
-        <table class="top-players">
+        <table class="players">
           {% for transfer in transfers %}
           <tr>
             <td>{{ forloop.counter }}</td>
@@ -25,11 +32,11 @@
             <td>{{ transfer.eski }}</td>
             <td>{{ transfer.yangi }}</td>
             <td>{{ transfer.narx }}</td>
-            <td>{{ transfer.mavsum }}</td>
+            <td>{{ transfer.tah_narx }}</td>
           </tr>
           {% endfor %}
         </table>
         <hr>
-        <p>It is a list of the most expensive transfers of all time. The minimum transfer value is 50 million euro.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae soluta sequi quia eos cupiditate rerum accusantium odit enim, expedita, architecto error dignissimos voluptatibus. Nisi illo, maiores fugit amet neque eveniet!</p>
       </div>
 {% endblock %}
