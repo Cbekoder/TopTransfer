@@ -4,3 +4,4 @@ from .models import *
 admin.site.register(Player)
 admin.site.register(Club)
 admin.site.register(Transfer)
+admin.site.register(HMavsum)

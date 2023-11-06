@@ -24,10 +24,23 @@ class Player(models.Model):
     def __str__(self):
         return self.ism
 
+class HMavsum(models.Model):
+    hozirgi_mavsum = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.hozirgi_mavsum
+
+    class Meta:
+        verbose_name = "Hozirgi Mavsum"
+        verbose_name_plural = "Hozirgi Mavsum"
+
 class Transfer(models.Model):
     player = models.ForeignKey(Player, on_delete=models.CASCADE)
-    eski = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="sotuvlari")
-    yangi = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="olganlari")
+    eski = models.ForeignKey(Club, on_delete=models.CASCADE, related_name="sotuvlari")
+    yangi = models.ForeignKey(Club, on_delete=models.CASCADE, related_name="olganlari")
     narx = models.PositiveIntegerField()
     tah_narx = models.PositiveIntegerField()
-    mavsum = models.CharField(max_length=10)
+    mavsum = models.ForeignKey(HMavsum, on_delete=models.SET_NULL, null= True)
+
+    def __str__(self):
+        return f"{self.player} >>> {self.yangi}"

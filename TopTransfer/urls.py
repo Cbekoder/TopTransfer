@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 from asosiy.views import *
 
@@ -18,5 +20,6 @@ urlpatterns = [
     path('U20-players/', u_20_players),
     path('tryouts/', tryouts),
     path('transfer-archive/', transfer_archive),
-    path('countries/england/', england),
-]
+    path('countries/<str:davlat>/', country_club),
+    path('club_player/<str:club>/', club_player),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

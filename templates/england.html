@@ -2,107 +2,19 @@
 
 {% block content %}
       <div class="nav">
-        <h2>– ENGLAND –</h2>
+        <h2>-{{ country }}-</h2>
         <table class="content-nav"></table>
       </div>
-      <div class="content" style="margin-top: 170px ;">
+      <div class="content" style="margin-top: 170px">
         <div class="clubs">
+          {% for club in clubs %}
           <div class="club">
-            <a href="../country-clubs.html">
-              <img src="../img/manchester.logo.png" alt="" />
-              Manchester City
+            <a href='/club_player/{{club.nom}}/'>
+              <img src="{{ club.logo.url }}" alt="" />
+              {{ club.nom }}
             </a>
           </div>
-          <div class="club">
-            <a href="../country-clubs.html">
-              <img src="../img/manchester.logo.png" alt="" />
-              Manchester City
-            </a>
-          </div>
-          <div class="club">
-            <a href="../country-clubs.html">
-              <img src="../img/manchester.logo.png" alt="" />
-              Manchester City
-            </a>
-          </div>
-          <div class="club">
-            <a href="../country-clubs.html">
-              <img src="../img/manchester.logo.png" alt="" />
-              Manchester City
-            </a>
-          </div>
-          <div class="club">
-            <a href="../country-clubs.html">
-              <img src="../img/manchester.logo.png" alt="" />
-              Manchester City
-            </a>
-          </div>
-          <div class="club">
-            <a href="../country-clubs.html">
-              <img src="../img/manchester.logo.png" alt="" />
-              Manchester City
-            </a>
-          </div>
-          <div class="club">
-            <a href="../country-clubs.html">
-              <img src="../img/manchester.logo.png" alt="" />
-              Manchester City
-            </a>
-          </div>
-          <div class="club">
-            <a href="../country-clubs.html">
-              <img src="../img/manchester.logo.png" alt="" />
-              Manchester City
-            </a>
-          </div>
-          <div class="club">
-            <a href="../country-clubs.html">
-              <img src="../img/manchester.logo.png" alt="" />
-              Manchester City
-            </a>
-          </div>
-          <div class="club">
-            <a href="../country-clubs.html">
-              <img src="../img/manchester.logo.png" alt="" />
-              Manchester City
-            </a>
-          </div>
-          <div class="club">
-            <a href="../country-clubs.html">
-              <img src="../img/manchester.logo.png" alt="" />
-              Manchester City
-            </a>
-          </div>
-          <div class="club">
-            <a href="../country-clubs.html">
-              <img src="../img/manchester.logo.png" alt="" />
-              Manchester City
-            </a>
-          </div>
-          <div class="club">
-            <a href="../country-clubs.html">
-              <img src="../img/manchester.logo.png" alt="" />
-              Manchester City
-            </a>
-          </div>
-          <div class="club">
-            <a href="../country-clubs.html">
-              <img src="../img/manchester.logo.png" alt="" />
-              Manchester City
-            </a>
-          </div>
-          <div class="club">
-            <a href="../country-clubs.html">
-              <img src="../img/manchester.logo.png" alt="" />
-              Manchester City
-            </a>
-          </div>
-          <div class="club">
-            <a href="../country-clubs.html">
-              <img src="../img/manchester.logo.png" alt="" />
-              Manchester City
-            </a>
-          </div>
+          {% endfor %}
         </div>
       </div>
 {% endblock %}
